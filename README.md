@@ -1,6 +1,6 @@
 # Game Station - Game Templates
 
-Templates for [Game Station](https://portal.cfx.re/) add-on games. Each folder is a complete resource
+Templates for [Game Station](https://store.fsgscripts.com/) add-on games. Each folder is a complete resource
 with the same small game (Snake) that uses every part of the add-on API: registering in the store, the
 controller, sharing the game to the TV and to people watching, calling your own Lua, and messages from
 the server to every screen at a console.
