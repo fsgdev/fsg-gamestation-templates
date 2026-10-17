@@ -27,4 +27,4 @@ Each template's README covers working on the page in a browser and live in game.
 The full guide (how a game runs, the controls, every export and the page SDK) is the
 [Add-on Games docs](https://fsg-scripts.gitbook.io/resources/fsg-scripts/fsg_gamestation/add-on-games).
 
-Requires Game Station 1.1.0 or newer.
+Requires Game Station 2.0.0 or newer.
