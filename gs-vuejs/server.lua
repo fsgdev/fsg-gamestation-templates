@@ -1,4 +1,4 @@
--- Registers the game in config.lua with Game Station, and keeps each player's best score.
+-- Registers the game in config.lua with FSG Console, and keeps each player's best score.
 
 local resource = GetCurrentResourceName()
 local GAME = Config.Game
@@ -10,7 +10,7 @@ local function register()
     if not ok then print(('^1[%s]^7 RegisterGame failed: %s'):format(resource, err)) end
 end
 
--- Game Station forgets add-ons when it restarts, so register again whenever it starts.
+-- FSG Console forgets add-ons when it restarts, so register again whenever it starts.
 AddEventHandler('onResourceStart', function(started)
     if started == 'fsg_gamestation' then register() end
 end)
@@ -21,7 +21,7 @@ local function bestKey(src)
     return 'best:' .. (GetPlayerIdentifierByType(src, 'license') or tostring(src))
 end
 
--- Only someone playing this game right now gets an answer. GetPlayingGame is Game Station's word
+-- Only someone playing this game right now gets an answer. GetPlayingGame is FSG Console's word
 -- (the player owns the game and has that console's screen on), not the page's.
 lib.callback.register(resource .. ':getBest', function(src)
     if exports.fsg_gamestation:GetPlayingGame(src) ~= GAME.id then return 0 end
@@ -46,7 +46,7 @@ lib.callback.register(resource .. ':gameOver', function(src, score)
     return best
 end)
 
--- Game Station also tells you when someone opens or leaves your game (local events: listen with
+-- FSG Console also tells you when someone opens or leaves your game (local events: listen with
 -- AddEventHandler, never RegisterNetEvent, so no client can fake them).
 AddEventHandler('fsg_gamestation:addon:opened', function(src, gameId, consoleId)
     if gameId ~= GAME.id then return end

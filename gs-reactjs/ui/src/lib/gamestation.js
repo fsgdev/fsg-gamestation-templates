@@ -1,10 +1,10 @@
 /**
- * Game Station add-on SDK (page side), protocol 1.
+ * FSG Console add-on SDK (page side), protocol 1.
  * Copy this file and gamestation.d.ts into your game's page, then:
  *
  *   import GameStation from './gamestation.js'
  *
- * Your page is shown inside Game Station on two kinds of surface, and `GameStation.context.role`
+ * Your page is shown inside FSG Console on two kinds of surface, and `GameStation.context.role`
  * says which one this copy is:
  *   'player'  the player's own screen. It gets the controller, runs the game, can call your
  *             resource's NUI callbacks (fetchNui) and shares its state (share).
@@ -26,7 +26,7 @@ const KEYS = {
   Enter: 'a', NumpadEnter: 'a', Backspace: 'b', Space: 'x', Tab: 'y',
 }
 const SHARE_MS = 33 // shares leave at most ~30 times a second; the newest state wins
-const MAX_SHARE = 16384 // Game Station's default Config.AddonGames.maxShareBytes
+const MAX_SHARE = 16384 // FSG Console's default Config.AddonGames.maxShareBytes
 const EARLY_MAX = 32 // messages kept for a page that has not started listening yet
 
 const embedded = window.parent !== window
@@ -86,7 +86,7 @@ function releaseAll() {
   setStick(0, 0)
 }
 
-// ─── From Game Station ───────────────────────────────────────────────────────
+// ─── From FSG Console ────────────────────────────────────────────────────────
 window.addEventListener('message', (e) => {
   if (!embedded || e.source !== window.parent) return
   const m = e.data
@@ -155,7 +155,7 @@ function onKey(e) {
   const el = e.target
   if (el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable)) return
   const pressed = e.type === 'keydown'
-  // A keyboard add-on has no Game Station menu over it: Esc quits, like the store's web games.
+  // A keyboard add-on has no FSG Console menu over it: Esc quits, like the store's web games.
   if (e.code === 'Escape' && pressed && embedded && context && context.role === 'player' && context.input === 'keyboard') {
     e.preventDefault()
     post({ type: 'exit' })
@@ -173,7 +173,7 @@ window.addEventListener('keydown', onKey)
 window.addEventListener('keyup', onKey)
 window.addEventListener('blur', () => { if (keyboardDrives()) releaseAll() })
 
-// ─── To Game Station ─────────────────────────────────────────────────────────
+// ─── To FSG Console ──────────────────────────────────────────────────────────
 function flushShare() {
   shareTimer = 0
   if (!hasPending) return
@@ -196,7 +196,7 @@ function flushShare() {
 if (embedded) setTimeout(() => post({ type: 'ready' }), 0)
 
 const GameStation = {
-  /** Who this copy of the page is and where it runs; null until Game Station says (see ready). */
+  /** Who this copy of the page is and where it runs; null until FSG Console says (see ready). */
   get context() { return context },
   /** Resolves with the first context. */
   ready,
@@ -206,7 +206,7 @@ const GameStation = {
   get shared() { return shared },
   /** 0..1, how loud this copy should play. The player's own TV is 0 (their screen plays the sound). */
   get volume() { return volume },
-  /** Game Station's menu is open over the game (Esc / P / Start). */
+  /** FSG Console's menu is open over the game (Esc / P / Start). */
   get paused() { return paused },
   /** Left stick, W A S D, arrows or d-pad as { x, y } in -1..1 (y down). */
   get stick() { return stick },
@@ -253,7 +253,7 @@ const GameStation = {
 
   /**
    * Player only: POST to your resource's RegisterNUICallback(name) and resolve with its cb() value.
-   * In a browser (or Game Station's dev preview) it resolves with `mock` instead.
+   * In a browser (or FSG Console's dev preview) it resolves with `mock` instead.
    */
   async fetchNui(name, data, mock) {
     if (!embedded || (context && context.dev)) return mock
@@ -270,7 +270,7 @@ const GameStation = {
     return text ? JSON.parse(text) : null
   },
 
-  /** Player only: close the game and go back to Game Station's Home. */
+  /** Player only: close the game and go back to FSG Console's Home. */
   exit() {
     if (context && context.role === 'player') post({ type: 'exit' })
   },

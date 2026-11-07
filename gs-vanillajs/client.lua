@@ -1,5 +1,5 @@
 -- The page's GameStation.fetchNui calls land here (only the player's own screen can make them) and
--- go on to the server, which checks them against Game Station.
+-- go on to the server, which checks them against FSG Console.
 
 local resource = GetCurrentResourceName()
 

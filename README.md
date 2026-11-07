@@ -1,6 +1,6 @@
-# Game Station - Game Templates
+# FSG Console - Game Templates
 
-Templates for [Game Station](https://store.fsgscripts.com/) add-on games. Each folder is a complete resource
+Templates for [FSG Console](https://store.fsgscripts.com/) add-on games. Each folder is a complete resource
 with the same small game (Snake) that uses every part of the add-on API: registering in the store, the
 controller, sharing the game to the TV and to people watching, calling your own Lua, and messages from
 the server to every screen at a console.
@@ -18,7 +18,7 @@ the server to every screen at a console.
 2. In its `config.lua`, give the game its own `id` (unique and permanent: purchases are saved under
    it), name, price and art.
 3. For React or Vue: in `ui`, run `npm i` and `npm run build`.
-4. `ensure` it after `fsg_gamestation`. The game is in the Game Station store.
+4. `ensure` it after `fsg_gamestation`. The game is in the FSG Store.
 
 Each template's README covers working on the page in a browser and live in game.
 
@@ -27,4 +27,4 @@ Each template's README covers working on the page in a browser and live in game.
 The full guide (how a game runs, the controls, every export and the page SDK) is the
 [Add-on Games docs](https://fsg-scripts.gitbook.io/resources/fsg-scripts/fsg_gamestation/add-on-games).
 
-Requires Game Station 2.0.0 or newer.
+Requires FSG Console (fsg_gamestation) 2.0.0 or newer.

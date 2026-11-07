@@ -1,4 +1,4 @@
-// Types for gamestation.js (Game Station add-on SDK, protocol 1). Keep both files side by side.
+// Types for gamestation.js (FSG Console add-on SDK, protocol 1). Keep both files side by side.
 
 export type GameStationButton = 'up' | 'down' | 'left' | 'right' | 'a' | 'b' | 'x' | 'y'
 
@@ -19,15 +19,15 @@ export interface GameStationContext {
   fullscreen: boolean
   /** The player holds the controller (not put down, not walking around in free move). */
   controller: boolean
-  /** Game Station's menu is open over the game. */
+  /** FSG Console's menu is open over the game. */
   paused: boolean
   /** Who plays: on the player's screen their server id and name, on a watcher's the host's name. */
   player: { id?: number; name?: string } | null
-  /** The player's Game Station accent colour, '#RRGGBB'. */
+  /** The player's FSG Console accent colour, '#RRGGBB'. */
   accent: string
   /** 0..1, how loud this copy should play. */
   volume: number
-  /** Not in FiveM (a browser, or Game Station's dev preview). */
+  /** Not in FiveM (a browser, or FSG Console's dev preview). */
   dev: boolean
 }
 

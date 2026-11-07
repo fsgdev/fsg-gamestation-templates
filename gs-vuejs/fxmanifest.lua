@@ -3,7 +3,7 @@ game 'gta5'
 lua54 'yes'
 
 name 'gs-vuejs'
-description 'Game Station game template (Vue)'
+description 'FSG Console game template (Vue)'
 author 'FSG'
 version '1.0.0'
 

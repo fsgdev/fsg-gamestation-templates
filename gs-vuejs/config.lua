@@ -1,4 +1,4 @@
--- Your game, as Game Station shows it in its store. server.lua registers it.
+-- Your game, as FSG Console shows it in its store. server.lua registers it.
 Config = {}
 
 Config.Game = {
@@ -10,16 +10,16 @@ Config.Game = {
     cover = 'images/cover.png',     -- square art (a file in this resource, or an https link)
     background = 'images/background.png', -- 16:9 art
     ui = 'ui/dist/index.html',      -- the game's page
-    -- 'controller': played on the TV with the controller (Game Station sends the buttons).
+    -- 'controller': played on the TV with the controller (FSG Console sends the buttons).
     -- 'keyboard': played fullscreen with keyboard and mouse, like the store's web games.
     input = 'controller',
-    controls = { -- the keybind HUD while playing (Game Station adds Menu, Fullscreen and Drop)
+    controls = { -- the keybind HUD while playing (FSG Console adds Menu, Fullscreen and Drop)
         { keys = { 'up', 'down', 'left', 'right' }, label = 'Steer' },
         { keys = { 'Enter' }, label = 'Start' },
     },
 }
 
 -- While you work on the page: run `npm run dev` in ui/ and set this to 'http://localhost:3000'.
--- Game Station then loads the page from there, so a saved change shows in game at once. Only you see
+-- FSG Console then loads the page from there, so a saved change shows in game at once. Only you see
 -- it (localhost is each player's own PC): set it back to false and build (npm run build) before anyone else plays.
 Config.DevServer = false

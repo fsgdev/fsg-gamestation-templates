@@ -3,7 +3,7 @@ game 'gta5'
 lua54 'yes'
 
 name 'gs-reactjs'
-description 'Game Station game template (React + JavaScript)'
+description 'FSG Console game template (React + JavaScript)'
 author 'FSG'
 version '1.0.0'
 

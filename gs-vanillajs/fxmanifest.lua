@@ -3,7 +3,7 @@ game 'gta5'
 lua54 'yes'
 
 name 'gs-vanillajs'
-description 'Game Station game template (Vanilla JavaScript)'
+description 'FSG Console game template (Vanilla JavaScript)'
 author 'FSG'
 version '1.0.0'
 
